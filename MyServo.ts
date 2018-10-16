@@ -101,7 +101,6 @@ namespace MyServo {
      * Servo stop
      * @param indexSVstop  Select servo number to control
      */
-    //% subcategory=Servo
     //% blockId="Servo_servoSTOP" block="servo stop|%indexSVstop"
     export function servoSTOP(indexSVstop: Servo): void {
     	if (indexSVstop==Servo.Servo0) {
