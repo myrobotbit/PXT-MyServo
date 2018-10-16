@@ -97,4 +97,51 @@ namespace MyServo {
 	}
     }
 
+     /**
+     * Servo stop
+     * @param indexSVstop  Select servo number to control
+     */
+    //% subcategory=Servo
+    //% blockId="Servo_servoSTOP" block="servo stop|%indexSVstop"
+    export function servoSTOP(indexSVstop: Servo): void {
+    	if (indexSVstop==Servo.Servo0) {
+	        pins.servoSetPulse(AnalogPin.P0, 0)
+	}
+    	if (indexSVstop==Servo.Servo1) {
+	        pins.servoSetPulse(AnalogPin.P1, 0)
+	}
+    	if (indexSVstop==Servo.Servo2) {
+	        pins.servoSetPulse(AnalogPin.P2, 0)
+	}
+    	if (indexSVstop==Servo.Servo3) {
+	        pins.servoSetPulse(AnalogPin.P3, 0)
+	}
+    	if (indexSVstop==Servo.Servo4) {
+	        pins.servoSetPulse(AnalogPin.P4, 0)
+	}
+    	if (indexSVstop==Servo.Servo10) {
+	        pins.servoSetPulse(AnalogPin.P10, 0)
+	}
+    	if (indexSVstop==Servo.Servo5) {
+	        pins.servoSetPulse(AnalogPin.P5, 0)
+	}
+    	if (indexSVstop==Servo.Servo6) {
+	        pins.servoSetPulse(AnalogPin.P6, 0)
+	}
+    	if (indexSVstop==Servo.Servo7) {
+	        pins.servoSetPulse(AnalogPin.P7, 0)
+	}
+    	if (indexSVstop==Servo.Servo8) {
+	        pins.servoSetPulse(AnalogPin.P8, 0)
+	}
+    	if (indexSVstop==Servo.Servo9) {
+	        pins.servoSetPulse(AnalogPin.P9, 0)
+	}
+    	if (indexSVstop==Servo.Servo11) {
+	        pins.servoSetPulse(AnalogPin.P11, 0)
+	}
+    	if (indexSVstop==Servo.Servo12) {
+	        pins.servoSetPulse(AnalogPin.P12, 0)
+	}
+    }
 }
