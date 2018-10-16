@@ -1,10 +1,4 @@
-﻿//% weight=50 color="#ff6600" weight=10 icon="\uf11e"
-
-namespace MyServo {
-	/************************************************************************************************************************************************
-	* Robot<>Stem<>Project<>micro:bit 
-	************************************************************************************************************************************************/
-   export enum Servo {
+﻿   export enum Servo {
 	//% block="P0"
 	Servo0,
 	//% block="P1"
@@ -47,6 +41,9 @@ namespace MyServo {
 	//% block="P10"
 	Servo10
     }
+
+//% weight=50 color="#ff6600" weight=10 icon="\uf11e"
+namespace MyServo {
 
     /**
      * Control Servo 0 - 180 degree 
