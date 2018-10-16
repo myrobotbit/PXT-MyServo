@@ -45,43 +45,43 @@ namespace MyServo {
     //% Degree.min=0 Degree.max=180
     //% weight=75
     export function ServoRun(ServoSelect:Servo, Degree:number): void{
-        if(ServoSelect == Servo.P0){
+        if(ServoSelect == Servo.Servo0){
             pins.servoWritePin(AnalogPin.P0, Degree)
         }
-        if(ServoSelect == Servo.P1){
+        if(ServoSelect == Servo.Servo1){
             pins.servoWritePin(AnalogPin.P1, Degree)
         }
-        if(ServoSelect == Servo.P2){
+        if(ServoSelect == Servo.Servo2){
             pins.servoWritePin(AnalogPin.P2, Degree)
         }
-        if(ServoSelect == Servo.P3){
+        if(ServoSelect == Servo.Servo3){
             pins.servoWritePin(AnalogPin.P3, Degree)
         }
-        if(ServoSelect == Servo.P4){
+        if(ServoSelect == Servo.Servo4){
             pins.servoWritePin(AnalogPin.P4, Degree)
         }
-        if(ServoSelect == Servo.P10){
+        if(ServoSelect == Servo.Servo10){
             pins.servoWritePin(AnalogPin.P10, Degree)
         }
-        if(ServoSelect == Servo.P5){
+        if(ServoSelect == Servo.Servo5){
             pins.servoWritePin(AnalogPin.P5, Degree)
         }
-        if(ServoSelect == Servo.P6){
+        if(ServoSelect == Servo.Servo6){
             pins.servoWritePin(AnalogPin.P6, Degree)
         }
-        if(ServoSelect == Servo.P7){
+        if(ServoSelect == Servo.Servo7){
             pins.servoWritePin(AnalogPin.P7, Degree)
         }
-        if(ServoSelect == Servo.P8){
+        if(ServoSelect == Servo.Servo8){
             pins.servoWritePin(AnalogPin.P8, Degree)
         }
-        if(ServoSelect == Servo.P9){
+        if(ServoSelect == Servo.Servo9){
             pins.servoWritePin(AnalogPin.P9, Degree)
         }
-        if(ServoSelect == Servo.P11){
+        if(ServoSelect == Servo.Servo11){
             pins.servoWritePin(AnalogPin.P11, Degree)
         }
-        if(ServoSelect == Servo.P12){
+        if(ServoSelect == Servo.Servo12){
             pins.servoWritePin(AnalogPin.P12, Degree)
         }
     }
@@ -92,43 +92,43 @@ namespace MyServo {
     //% blockId="MyServo_ServoStop" block="servo stop %Servo"
     //% weight=70
     export function ServoStop(ServoSelect:Servo): void{
-        if(ServoSelect == Servo.P0){
+        if(ServoSelect == Servo.Servo0){
            pins.servoSetPulse(AnalogPin.P0, 0)
         }
-        if(ServoSelect == Servo.P1){
+        if(ServoSelect == Servo.Servo1){
            pins.servoSetPulse(AnalogPin.P1, 0)
         }
-        if(ServoSelect == Servo.P2){
+        if(ServoSelect == Servo.Servo2){
            pins.servoSetPulse(AnalogPin.P2, 0)
         }
-        if(ServoSelect == Servo.P3){
+        if(ServoSelect == Servo.Servo3){
            pins.servoSetPulse(AnalogPin.P3, 0)
         }
-        if(ServoSelect == Servo.P4){
+        if(ServoSelect == Servo.Servo4){
            pins.servoSetPulse(AnalogPin.P4, 0)
         }
-        if(ServoSelect == Servo.P10){
+        if(ServoSelect == Servo.Servo10){
            pins.servoSetPulse(AnalogPin.P10, 0)
         }
-        if(ServoSelect == Servo.P5){
+        if(ServoSelect == Servo.Servo5){
            pins.servoSetPulse(AnalogPin.P5, 0)
         }
-        if(ServoSelect == Servo.P6){
+        if(ServoSelect == Servo.Servo6){
            pins.servoSetPulse(AnalogPin.P6, 0)
         }
-        if(ServoSelect == Servo.P7){
+        if(ServoSelect == Servo.Servo7){
            pins.servoSetPulse(AnalogPin.P7, 0)
         }
-        if(ServoSelect == Servo.P8){
+        if(ServoSelect == Servo.Servo8){
            pins.servoSetPulse(AnalogPin.P8, 0)
         }
-        if(ServoSelect == Servo.P9){
+        if(ServoSelect == Servo.Servo9){
            pins.servoSetPulse(AnalogPin.P9, 0)
         }
-        if(ServoSelect == Servo.P11){
+        if(ServoSelect == Servo.Servo11){
            pins.servoSetPulse(AnalogPin.P11, 0)
         }
-        if(ServoSelect == Servo.P12){
+        if(ServoSelect == Servo.Servo12){
            pins.servoSetPulse(AnalogPin.P12, 0)
         }
     }
