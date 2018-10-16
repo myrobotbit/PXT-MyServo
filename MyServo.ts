@@ -1,4 +1,7 @@
-﻿   export enum Servo {
+﻿/**
+* Coding for control degree servo and servo 360 degree.
+*/
+   enum Servo {
 	//% block="P0"
 	Servo0,
 	//% block="P1"
@@ -27,7 +30,7 @@
 	Servo12
     }
 
-   export enum Servo360 {
+   enum Servo360 {
 	//% block="P0"
 	Servo0,
 	//% block="P1"
@@ -39,7 +42,21 @@
 	//% block="P4"
 	Servo4,
 	//% block="P10"
-	Servo10
+	Servo10,
+	//% block="P5"
+	Servo5,
+	//% block="P6"
+	Servo6,
+	//% block="P7"
+	Servo7,
+	//% block="P8"
+	Servo8,
+	//% block="P9"
+	Servo9,
+	//% block="P11"
+	Servo11,
+	//% block="P12"
+	Servo12
     }
 
 //% weight=50 color="#ff6600" weight=10 icon="\uf11e"
@@ -50,9 +67,9 @@ namespace MyServo {
      * @param indexSV  Select servo number to control
      * @param degree   Servo degree 0-180, eg: 90
      */
-    //% blockId="Servo_servoDEGREE" block="servo|%indexSV|degree %degree"
+    //% blockId="MyServo_servoDEGREE" block="servo | %Servo | degree %degree"
     //% degree.min=0 degree.max=180
-    export function servoDEGREE(indexSV: Servo, degree: number): void {
+    export function servoDEGREE(indexSV:Servo, degree:number): void {
 	if (indexSV==Servo.Servo0) {
 		pins.servoWritePin(AnalogPin.P0, degree)
 	}
@@ -98,45 +115,45 @@ namespace MyServo {
      * Servo stop
      * @param indexSVstop  Select servo number to control
      */
-    //% blockId="Servo_servoSTOP" block="servo stop|%indexSVstop"
+    //% blockId="MyServo_servoSTOP" block="servo stop | %Servo360"
     export function servoSTOP(indexSVstop: Servo): void {
-    	if (indexSVstop==Servo.Servo0) {
+    	if (indexSVstop==Servo360.Servo0) {
 	        pins.servoSetPulse(AnalogPin.P0, 0)
 	}
-    	if (indexSVstop==Servo.Servo1) {
+    	if (indexSVstop==Servo360.Servo1) {
 	        pins.servoSetPulse(AnalogPin.P1, 0)
 	}
-    	if (indexSVstop==Servo.Servo2) {
+    	if (indexSVstop==Servo360.Servo2) {
 	        pins.servoSetPulse(AnalogPin.P2, 0)
 	}
-    	if (indexSVstop==Servo.Servo3) {
+    	if (indexSVstop==Servo360.Servo3) {
 	        pins.servoSetPulse(AnalogPin.P3, 0)
 	}
-    	if (indexSVstop==Servo.Servo4) {
+    	if (indexSVstop==Servo360.Servo4) {
 	        pins.servoSetPulse(AnalogPin.P4, 0)
 	}
-    	if (indexSVstop==Servo.Servo10) {
+    	if (indexSVstop==Servo360.Servo10) {
 	        pins.servoSetPulse(AnalogPin.P10, 0)
 	}
-    	if (indexSVstop==Servo.Servo5) {
+    	if (indexSVstop==Servo360.Servo5) {
 	        pins.servoSetPulse(AnalogPin.P5, 0)
 	}
-    	if (indexSVstop==Servo.Servo6) {
+    	if (indexSVstop==Servo360.Servo6) {
 	        pins.servoSetPulse(AnalogPin.P6, 0)
 	}
-    	if (indexSVstop==Servo.Servo7) {
+    	if (indexSVstop==Servo360.Servo7) {
 	        pins.servoSetPulse(AnalogPin.P7, 0)
 	}
-    	if (indexSVstop==Servo.Servo8) {
+    	if (indexSVstop==Servo360.Servo8) {
 	        pins.servoSetPulse(AnalogPin.P8, 0)
 	}
-    	if (indexSVstop==Servo.Servo9) {
+    	if (indexSVstop==Servo360.Servo9) {
 	        pins.servoSetPulse(AnalogPin.P9, 0)
 	}
-    	if (indexSVstop==Servo.Servo11) {
+    	if (indexSVstop==Servo360.Servo11) {
 	        pins.servoSetPulse(AnalogPin.P11, 0)
 	}
-    	if (indexSVstop==Servo.Servo12) {
+    	if (indexSVstop==Servo360.Servo12) {
 	        pins.servoSetPulse(AnalogPin.P12, 0)
 	}
     }
