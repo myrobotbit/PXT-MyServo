@@ -33,16 +33,15 @@
 /**
  * Custom blocks
  */
-
 //% weight=50 color=#ff6600 icon="\uf11e"
 namespace MyServo {
 
      /**
      * Control Servo P0 to P12 degree 0 - 180 degree 
-     * @param degree   Servo degree 0-180, eg: 90
+     * @param Degree   Servo degree 0-180, eg: 90
      */
 
-    //% blockId="MyServo_ServoRun" block="Servo %Servo|Degree %Degree"
+    //% blockId="MyServo_ServoRun" block="Servo %Servo|degree %Degree"
     //% Degree.min=0 Degree.max=180
     //% weight=75
     export function ServoRun(ServoSelect:Servo, Degree:number): void{
