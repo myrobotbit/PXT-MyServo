@@ -1,160 +1,228 @@
-﻿/**
-* Coding for control degree servo and servo 360 degree.
-*/
-   enum Servo {
-	//% block="P0"
-	Servo0,
-	//% block="P1"
-	Servo1,
-	//% block="P2"
-	Servo2,
-	//% block="P3"
-	Servo3,
-	//% block="P4"
-	Servo4,
-	//% block="P10"
-	Servo10,
-	//% block="P5"
-	Servo5,
-	//% block="P6"
-	Servo6,
-	//% block="P7"
-	Servo7,
-	//% block="P8"
-	Servo8,
-	//% block="P9"
-	Servo9,
-	//% block="P11"
-	Servo11,
-	//% block="P12"
-	Servo12
+/**
+  * Enumeration of Motor.
+  */
+enum motor {
+    //% block="Forward \u21c8"
+    Forward,
+    //% block="Backward \u21ca"
+    Backward
+}
+
+/**
+  * Enumeration of TurnMotor.
+  */
+enum turn {
+    //% block="Left \u27f5"
+    Left,
+    //% block="Right \u27f6"
+    Right
+}
+
+/**
+  * Enumeration of SpinMotor.
+  */
+enum spin {
+    //% block="Left \u21f5"
+    Left,
+    //% block="Right \u21c5"
+    Right
+}
+
+/**
+  * Enumeration of ReadADC.
+  */
+enum readADC {
+    //% block="ADC 0"
+    ADC0 = 132,
+    //% block="ADC 1"
+    ADC1 = 196,
+    //% block="ADC 2"
+    ADC2 = 148,
+    //% block="ADC 3"
+    ADC3 = 212,
+    //% block="ADC 4"
+    ADC4 = 164,
+    //% block="ADC 5"
+    ADC5 = 228,
+    //% block="ADC 6"
+    ADC6 = 180,
+    //% block="ADC 7"
+    ADC7 = 244
+}
+
+/**
+  * Enumeration of Servo.
+  */
+enum servo{
+    //% block="1"
+    SV1,
+    //% block="2"
+    SV2
+}
+
+enum motorCH {
+    //% block="1"
+    M1,
+    //% block="2"
+    M2
+}
+
+/**
+ * Custom blocks
+ */
+//% weight=50 color=#02AFEC icon="\uf135"
+namespace iBIT {
+      
+    /**Motor Block to drives motor forward and backward. The speed motor is adjustable between 0 to 100.
+      * @param speed percent of maximum speed, eg: 50
+      */
+    //% blockId="ibit_Motor" block="Motor %motor|speed %speed"
+    //% speed.min=0 speed.max=100
+    //% weight=95
+    export function Motor(Motor: motor, speed: number): void {  
+        let motorspeed = pins.map(speed,0,100,0,1023)     
+        if (Motor == motor.Forward) {
+           pins.digitalWritePin(DigitalPin.P13, 1)
+           pins.analogWritePin(AnalogPin.P14, motorspeed)
+           pins.digitalWritePin(DigitalPin.P15, 0)
+           pins.analogWritePin(AnalogPin.P16, motorspeed)
+        }
+        if (Motor == motor.Backward) {
+           pins.digitalWritePin(DigitalPin.P13, 0)
+           pins.analogWritePin(AnalogPin.P14, motorspeed)
+           pins.digitalWritePin(DigitalPin.P15, 1)
+           pins.analogWritePin(AnalogPin.P16, motorspeed)
+        }
     }
 
-   enum Servo360 {
-	//% block="P0"
-	Servo0,
-	//% block="P1"
-	Servo1,
-	//% block="P2"
-	Servo2,
-	//% block="P3"
-	Servo3,
-	//% block="P4"
-	Servo4,
-	//% block="P10"
-	Servo10,
-	//% block="P5"
-	Servo5,
-	//% block="P6"
-	Servo6,
-	//% block="P7"
-	Servo7,
-	//% block="P8"
-	Servo8,
-	//% block="P9"
-	Servo9,
-	//% block="P11"
-	Servo11,
-	//% block="P12"
-	Servo12
+     /**Turn Block set direction TurnLeft or TurnRight. The speed motor is adjustable between 0 to 100.
+      * @param speed percent of maximum speed, eg: 50
+      */
+    //% blockId="ibit_Turn" block="Turn %motor|speed %speed"
+    //% speed.min=0 speed.max=100
+    //% weight=90
+    export function Turn(Turn: turn, speed: number): void {       
+      let motorspeed = pins.map(speed,0,100,0,1023)      
+        if (Turn == turn.Left) {           
+            pins.digitalWritePin(DigitalPin.P13, 1)
+            pins.analogWritePin(AnalogPin.P14, 0)
+            pins.digitalWritePin(DigitalPin.P15, 0)
+            pins.analogWritePin(AnalogPin.P16, motorspeed)
+        }
+        if (Turn == turn.Right) {
+            pins.digitalWritePin(DigitalPin.P13, 1)
+            pins.analogWritePin(AnalogPin.P14, motorspeed)
+            pins.digitalWritePin(DigitalPin.P15, 0)
+            pins.analogWritePin(AnalogPin.P16, 0)
+        }
     }
 
-//% weight=50 color="#ff6600" weight=10 icon="\uf11e"
-namespace MyServo {
+    /**Spin Block set direction SpinLeft or SpinRight. The speed motor is adjustable between 0 to 100.  
+      * @param speed percent of maximum speed, eg: 50
+      */
+    //% blockId="ibit_Spin" block="Spin %motor|speed %speed"
+    //% speed.min=0 speed.max=100
+    //% weight=85
+    export function Spin(Spin: spin, speed: number): void {   
+        let motorspeed = pins.map(speed,0,100,0,1023)    
+        if (Spin == spin.Left) {
+            pins.digitalWritePin(DigitalPin.P13, 0)
+            pins.analogWritePin(AnalogPin.P14, motorspeed)
+            pins.digitalWritePin(DigitalPin.P15, 0)
+            pins.analogWritePin(AnalogPin.P16, motorspeed)
+        }
+        if (Spin == spin.Right) {
+            pins.digitalWritePin(DigitalPin.P13, 1)
+            pins.analogWritePin(AnalogPin.P14, motorspeed)
+            pins.digitalWritePin(DigitalPin.P15, 1)
+            pins.analogWritePin(AnalogPin.P16, motorspeed)
+        }
+    }
+    
+   /**The Motor Stop block is used to stop both motors. The speed is set to 0 automatic.       
+      * 
+      */
+    //% blockId="ibit_MotorStop" block="Motor Stop"
+    //% weight=80
+    export function MotorStop():void{
+        pins.digitalWritePin(DigitalPin.P13, 1)
+        pins.analogWritePin(AnalogPin.P14, 0)
+        pins.digitalWritePin(DigitalPin.P15, 1)
+        pins.analogWritePin(AnalogPin.P16, 0)
+    }
+
+
+    /**ReadADC for read analog sensor, Select ADC channel 0-7. 
+      *
+      */
+    //% blockId="ibit_readADC" block="Read %readADC"
+    //% weight=60
+    export function ReadADC(ReadADC:readADC): number{ 
+            let ADCValue:number;
+
+            pins.i2cWriteNumber(
+            72,
+            ReadADC,
+            NumberFormat.UInt8LE,
+            false
+            )
+            return ReadADC = pins.i2cReadNumber(72, NumberFormat.UInt16BE, false)      
+    }
 
     /**
-     * Control Servo 0 - 180 degree 
-     * @param indexSV  Select servo number to control
-     * @param degree   Servo degree 0-180, eg: 90
+     * Control Servo 1 or 2 set degree between 0 - 180
+     * @param Degree servo degree 0-180, eg: 90
      */
-    //% blockId="MyServo_servoDEGREE" block="servo | %Servo | degree %degree"
-    //% degree.min=0 degree.max=180
-    export function servoDEGREE(indexSV:Servo, degree:number): void {
-	if (indexSV==Servo.Servo0) {
-		pins.servoWritePin(AnalogPin.P0, degree)
-	}
-	if (indexSV==Servo.Servo1) {
-		pins.servoWritePin(AnalogPin.P1, degree)
-	}
-	if (indexSV==Servo.Servo2) {
-		pins.servoWritePin(AnalogPin.P2, degree)
-	}
-	if (indexSV==Servo.Servo3) {
-		pins.servoWritePin(AnalogPin.P3, degree)
-	}
-	if (indexSV==Servo.Servo4) {
-		pins.servoWritePin(AnalogPin.P4, degree)
-	}
-	if (indexSV==Servo.Servo10) {
-		pins.servoWritePin(AnalogPin.P10, degree)
-	}
-	if (indexSV==Servo.Servo5) {
-		pins.servoWritePin(AnalogPin.P5, degree)
-	}
-	if (indexSV==Servo.Servo6) {
-		pins.servoWritePin(AnalogPin.P6, degree)
-	}
-	if (indexSV==Servo.Servo7) {
-		pins.servoWritePin(AnalogPin.P7, degree)
-	}
-	if (indexSV==Servo.Servo8) {
-		pins.servoWritePin(AnalogPin.P8, degree)
-	}
-	if (indexSV==Servo.Servo9) {
-		pins.servoWritePin(AnalogPin.P9, degree)
-	}
-	if (indexSV==Servo.Servo11) {
-		pins.servoWritePin(AnalogPin.P11, degree)
-	}
-	if (indexSV==Servo.Servo12) {
-		pins.servoWritePin(AnalogPin.P12, degree)
-	}
+    //% blockId="ibit_Servo" block="Servo %servo|Degree %Degree"
+    //% Degree.min=0 Degree.max=180
+    //% weight=75
+    export function Servo(Servo:servo, Degree:number): void{
+        if(Servo == servo.SV1){
+            pins.servoWritePin(AnalogPin.P8, Degree)
+        }
+        if(Servo == servo.SV2){
+            pins.servoWritePin(AnalogPin.P12, Degree)
+        }
+    }
+    
+     /**
+     * Control Servo 1 or 2 set to freedom
+     */
+    //% blockId="ibit_ServoStop" block="Servo Stop %servo"
+    //% weight=70
+    export function ServoStop(Servo:servo): void{
+        if(Servo == servo.SV1){
+           pins.servoSetPulse(AnalogPin.P8, 0)
+        }
+        if(Servo == servo.SV2){
+           pins.servoSetPulse(AnalogPin.P12, 0)
+        }
     }
 
-     /**
-     * Servo stop
-     * @param indexSVstop  Select servo number to control
-     */
-    //% blockId="MyServo_servoSTOP" block="servo stop | %Servo360"
-    export function servoSTOP(indexSVstop: Servo): void {
-    	if (indexSVstop==Servo360.Servo0) {
-	        pins.servoSetPulse(AnalogPin.P0, 0)
-	}
-    	if (indexSVstop==Servo360.Servo1) {
-	        pins.servoSetPulse(AnalogPin.P1, 0)
-	}
-    	if (indexSVstop==Servo360.Servo2) {
-	        pins.servoSetPulse(AnalogPin.P2, 0)
-	}
-    	if (indexSVstop==Servo360.Servo3) {
-	        pins.servoSetPulse(AnalogPin.P3, 0)
-	}
-    	if (indexSVstop==Servo360.Servo4) {
-	        pins.servoSetPulse(AnalogPin.P4, 0)
-	}
-    	if (indexSVstop==Servo360.Servo10) {
-	        pins.servoSetPulse(AnalogPin.P10, 0)
-	}
-    	if (indexSVstop==Servo360.Servo5) {
-	        pins.servoSetPulse(AnalogPin.P5, 0)
-	}
-    	if (indexSVstop==Servo360.Servo6) {
-	        pins.servoSetPulse(AnalogPin.P6, 0)
-	}
-    	if (indexSVstop==Servo360.Servo7) {
-	        pins.servoSetPulse(AnalogPin.P7, 0)
-	}
-    	if (indexSVstop==Servo360.Servo8) {
-	        pins.servoSetPulse(AnalogPin.P8, 0)
-	}
-    	if (indexSVstop==Servo360.Servo9) {
-	        pins.servoSetPulse(AnalogPin.P9, 0)
-	}
-    	if (indexSVstop==Servo360.Servo11) {
-	        pins.servoSetPulse(AnalogPin.P11, 0)
-	}
-    	if (indexSVstop==Servo360.Servo12) {
-	        pins.servoSetPulse(AnalogPin.P12, 0)
-	}
+    /**MotorCH set Motor Channel and Direction. The speed motor is adjustable between 0 to 100.   
+      * @param Speed percent of maximum Speed, eg: 50
+      */
+    //% blockId="ibit_MotorCH" block="Motor %motorCH | Direction %Motor | Speed %Speed"
+    //% Speed.min=0 Speed.max=100
+    //% weight=100
+    export function MotorCH(Channel:motorCH, Direction:motor, Speed:number): void {
+        let motorspeed = pins.map(Speed, 0, 100, 0, 1023)  
+        
+        if (Channel == motorCH.M1 && Direction == motor.Forward) {
+            pins.digitalWritePin(DigitalPin.P13, 1)
+            pins.analogWritePin(AnalogPin.P14, motorspeed)            
+        }
+        else if (Channel == motorCH.M2 && Direction == motor.Forward) {
+            pins.digitalWritePin(DigitalPin.P15, 0)
+            pins.analogWritePin(AnalogPin.P16, motorspeed)
+        }
+        else if (Channel == motorCH.M1 && Direction == motor.Backward) {
+            pins.digitalWritePin(DigitalPin.P13, 0)
+            pins.analogWritePin(AnalogPin.P14, motorspeed)  
+        }
+        else if (Channel == motorCH.M2 && Direction == motor.Backward) {
+            pins.digitalWritePin(DigitalPin.P15, 1)
+            pins.analogWritePin(AnalogPin.P16, motorspeed)
+        }
     }
 }
