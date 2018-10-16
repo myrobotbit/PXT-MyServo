@@ -1,14 +1,14 @@
 {
-    "name": "pxt-MyRobotBit",
-    "version": "0.0.4",
-    "description": "A MakeCode package to use MyRobotBit",
+    "name": "pxt-MyServo",
+    "version": "0.0.1",
+    "description": "A MakeCode package to use servo degree",
     "license": "MIT",
     "dependencies": {
         "core": "*"
     },
     "files": [
         "README.md",
-        "MyRobotBit.ts"
+        "MyServo.ts"
     ],
     "testFiles": [
         "test.ts"
