@@ -136,7 +136,7 @@ namespace MyServo {
     /**
      * Control Servo P0 to P12 set to keep pulse signal
      */
-    //% blockId="MyServo_ServoKeep" block="servo keep %Servo |to %uSEC microSec"
+    //% blockId="MyServo_ServoKeep" block="servo keep %Servo |to %uSEC |microSec"
     //% uSEC.min=0 uSEC.max=2500
     //% weight=65
     export function ServoKeep(ServoSelect:Servo, uSEC:number): void {
