@@ -30,6 +30,25 @@
 	Servo12
     }
 
+
+/**
+  * Coding for control Continues servo.
+  */
+   enum ServoCONTI {
+	//% block="P0"
+	Servo0,
+	//% block="P1"
+	Servo1,
+	//% block="P2"
+	Servo2,
+	//% block="P3"
+	Servo3,
+	//% block="P4"
+	Servo4,
+	//% block="P10"
+	Servo10
+    }
+
 /**
  * Custom blocks
  */
@@ -181,31 +200,31 @@ namespace MyServo {
         }
     }
 
-     /**
+      /**
      * Control Continues Servo P0 to P4 and P10
      * @param speed   Servo speed 0 = Full speed one direction, 90 = stop, 180 = full speed other direction eg: 90
      */
 
-    //% blockId="MyServo_Servo360" block="Servo360 %Servo|speed direction %speed"
+    //% blockId="MyServo_Servo360" block="Servo360 %Servo|speed & direction %speed"
     //% Degree.min=0 Degree.max=180
     //% weight=60
-    export function Servo360(ServoSelect:Servo, speed:number): void{
+    export function Servo360(ServoSelect:ServoCONTI, speed:number): void{
         if(ServoSelect == Servo.Servo0){
             pins.servoWritePin(AnalogPin.P0, speed)
         }
-        if(ServoSelect == Servo.Servo1){
+        if(ServoSelect == ServoCONTI.Servo1){
             pins.servoWritePin(AnalogPin.P1, speed)
         }
-        if(ServoSelect == Servo.Servo2){
+        if(ServoSelect == ServoCONTI.Servo2){
             pins.servoWritePin(AnalogPin.P2, speed)
         }
-        if(ServoSelect == Servo.Servo3){
+        if(ServoSelect == ServoCONTI.Servo3){
             pins.servoWritePin(AnalogPin.P3, speed)
         }
-        if(ServoSelect == Servo.Servo4){
+        if(ServoSelect == ServoCONTI.Servo4){
             pins.servoWritePin(AnalogPin.P4, speed)
         }
-        if(ServoSelect == Servo.Servo10){
+        if(ServoSelect == ServoCONTI.Servo10){
             pins.servoWritePin(AnalogPin.P10, speed)
         }
     }
