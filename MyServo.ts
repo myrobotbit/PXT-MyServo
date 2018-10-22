@@ -132,4 +132,52 @@ namespace MyServo {
            pins.servoSetPulse(AnalogPin.P12, 0)
         }
     }
+
+    /**
+     * Control Servo P0 to P12 set to keep pulse signal
+     */
+    //% blockId="MyServo_ServoKeep" block="servo keep %Servo |to %uSEC microSec"
+    //% uSEC.min=0 uSEC.max=2500
+    //% weight=65
+    export function ServoKeep(ServoSelect:Servo, uSEC:number): void {
+        if(ServoSelect == Servo.Servo0){
+           pins.servoSetPulse(AnalogPin.P0, uSEC)
+        }
+        if(ServoSelect == Servo.Servo1){
+           pins.servoSetPulse(AnalogPin.P1, uSEC)
+        }
+        if(ServoSelect == Servo.Servo2){
+           pins.servoSetPulse(AnalogPin.P2, uSEC)
+        }
+        if(ServoSelect == Servo.Servo3){
+           pins.servoSetPulse(AnalogPin.P3, uSEC)
+        }
+        if(ServoSelect == Servo.Servo4){
+           pins.servoSetPulse(AnalogPin.P4, uSEC)
+        }
+        if(ServoSelect == Servo.Servo10){
+           pins.servoSetPulse(AnalogPin.P10, uSEC)
+        }
+        if(ServoSelect == Servo.Servo5){
+           pins.servoSetPulse(AnalogPin.P5, uSEC)
+        }
+        if(ServoSelect == Servo.Servo6){
+           pins.servoSetPulse(AnalogPin.P6, uSEC)
+        }
+        if(ServoSelect == Servo.Servo7){
+           pins.servoSetPulse(AnalogPin.P7, uSEC)
+        }
+        if(ServoSelect == Servo.Servo8){
+           pins.servoSetPulse(AnalogPin.P8, uSEC)
+        }
+        if(ServoSelect == Servo.Servo9){
+           pins.servoSetPulse(AnalogPin.P9, uSEC)
+        }
+        if(ServoSelect == Servo.Servo11){
+           pins.servoSetPulse(AnalogPin.P11, uSEC)
+        }
+        if(ServoSelect == Servo.Servo12){
+           pins.servoSetPulse(AnalogPin.P12, uSEC)
+        }
+    }
 }
