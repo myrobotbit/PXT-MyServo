@@ -89,7 +89,7 @@ namespace MyServo {
      /**
      * Control Servo P0 to P12 set to stop
      */
-    //% blockId="MyServo_ServoStop" block="servo stop %Servo"
+    //% blockId="MyServo_ServoStop" block="Servo stop %Servo"
     //% weight=70
     export function ServoStop(ServoSelect:Servo): void{
         if(ServoSelect == Servo.Servo0){
@@ -136,7 +136,7 @@ namespace MyServo {
     /**
      * Control Servo P0 to P12 set to keep pulse signal
      */
-    //% blockId="MyServo_ServoKeep" block="servo keep %Servo |to %uSEC |microSec"
+    //% blockId="MyServo_ServoKeep" block="Servo keep %Servo |to %uSEC |microSec"
     //% uSEC.min=0 uSEC.max=2500
     //% weight=65
     export function ServoKeep(ServoSelect:Servo, uSEC:number): void {
