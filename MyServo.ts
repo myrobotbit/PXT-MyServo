@@ -52,7 +52,7 @@
 /**
  * Custom blocks
  */
-//% weight=50 color=#ff6600 icon="\uf11e"
+//% weight=50 color=#0066cc icon="\uf11e"
 namespace MyServo {
 
      /**
@@ -62,7 +62,7 @@ namespace MyServo {
 
     //% blockId="MyServo_ServoRun" block="Servo %Servo|degree %Degree"
     //% Degree.min=0 Degree.max=180
-    //% weight=75
+    //% weight=100
     export function ServoRun(ServoSelect:Servo, Degree:number): void{
         if(ServoSelect == Servo.Servo0){
             pins.servoWritePin(AnalogPin.P0, Degree)
@@ -109,7 +109,7 @@ namespace MyServo {
      * Control Servo P0 to P12 set to stop
      */
     //% blockId="MyServo_ServoStop" block="Servo stop %Servo"
-    //% weight=70
+    //% weight=90
     export function ServoStop(ServoSelect:Servo): void{
         if(ServoSelect == Servo.Servo0){
            pins.servoSetPulse(AnalogPin.P0, 0)
@@ -157,7 +157,7 @@ namespace MyServo {
      */
     //% blockId="MyServo_ServoKeep" block="Servo keep %Servo |to %uSEC |microSec"
     //% uSEC.min=0 uSEC.max=2500
-    //% weight=65
+    //% weight=80
     export function ServoKeep(ServoSelect:Servo, uSEC:number): void {
         if(ServoSelect == Servo.Servo0){
            pins.servoSetPulse(AnalogPin.P0, uSEC)
@@ -207,7 +207,7 @@ namespace MyServo {
 
     //% blockId="MyServo_Servo360" block="Servo360 %Servo|speed & direction %speed"
     //% Degree.min=0 Degree.max=180
-    //% weight=60
+    //% weight=70
     export function Servo360(ServoSelect:ServoCONTI, speed:number): void{
         if(ServoSelect == Servo.Servo0){
             pins.servoWritePin(AnalogPin.P0, speed)
