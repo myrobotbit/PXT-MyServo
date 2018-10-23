@@ -52,7 +52,7 @@
 /**
  * Custom blocks
  */
-//% weight=50 color=#0066cc icon="\uf11e"
+//% weight=50 color=#00cccc icon="\uf11e"
 namespace MyServo {
 
      /**
