@@ -205,7 +205,7 @@ namespace MyServo {
      * @param speed   Servo speed 0 = Full speed one direction, 90 = stop, 180 = full speed other direction eg: 90
      */
 
-    //% blockId="MyServo_Servo360" block="Servo360 %Servo|speed & direction %speed"
+    //% blockId="MyServo_Servo360" block="Servo360 %ServoCONTI|speed & direction %speed"
     //% Degree.min=0 Degree.max=180
     //% weight=70
     export function Servo360(ServoSelect:ServoCONTI, speed:number): void{
