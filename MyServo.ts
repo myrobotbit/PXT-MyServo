@@ -209,7 +209,7 @@ namespace MyServo {
     //% Degree.min=0 Degree.max=180
     //% weight=70
     export function Servo360(ServoSelect:ServoCONTI, speed:number): void{
-        if(ServoSelect == Servo.Servo0){
+        if(ServoSelect == ServoCONTI.Servo0){
             pins.servoWritePin(AnalogPin.P0, speed)
         }
         if(ServoSelect == ServoCONTI.Servo1){
