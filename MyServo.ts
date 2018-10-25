@@ -207,6 +207,7 @@ namespace MyServo {
 
     //% blockId="MyServo_Servo360" block="Servo360 %ServoCONTI|speed & direction %speed"
     //% Degree.min=0 Degree.max=180
+    //% color=#9966cc
     //% weight=70
     export function Servo360(ServoSelect:ServoCONTI, speed:number): void{
         if(ServoSelect == ServoCONTI.Servo0){
